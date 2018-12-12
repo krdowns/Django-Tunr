@@ -1,0 +1,22 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Tunr</title>
+        <link rel="stylesheet" href="{% static 'css/tunr.css' %}">
+    </head>
+    <body>
+        <h1>Tun.r</h1>
+        <nav>
+            <a href="/songs">Songs</a>
+            <a href="/">Artists</a>
+        </nav>
+        {% block content %}
+        <h1>New Artist</h1>
+        <form method="POST" class="artist-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}
+    </body>
+</html>
